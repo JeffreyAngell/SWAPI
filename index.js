@@ -18,6 +18,6 @@ app.use('/character', characterRoute);
 
 app.use('/planetresidents', residentsRoute);
 
-app.listen(80, () => {
+app.listen(process.env.PORT || 80, () => {
 	console.log('server started!');
 });
