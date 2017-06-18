@@ -1,5 +1,10 @@
-const request = require('request-promise');
+const requestPromise = require('request-promise');
 const Promise = require('bluebird');
+
+const cacheDecorator = require('./time-cache-decorator');
+const request = {
+	get: new cacheDecorator(1, 'day').decorate(requestPromise.get)
+};
 
 const apiBase = 'https://swapi.co/api/';
 
